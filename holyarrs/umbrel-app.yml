@@ -1,0 +1,51 @@
+manifestVersion: 1.1
+id: holyarrs
+storage:
+  dataRoot: data
+folderAccess:
+  - id: umbrel-downloads
+    name: Downloads
+    note: The shared Umbrel Downloads folder, available inside HolyArrs at /downloads. Keep your downloader pointed here so HolyArrs can import finished downloads.
+    mounts:
+      - service: server
+        targetPath: /downloads
+  - id: media-library
+    name: Media Library
+    note: Select the folder that holds (or will hold) your movies, shows and music. Inside HolyArrs it appears at /media; use /media/movies, /media/tv and /media/music.
+    mounts:
+      - service: server
+        targetPath: /media
+environment:
+  - name: TZ
+    services:
+      - server
+    default: Etc/UTC
+    note: Time zone used for logs and schedules, for example Europe/Amsterdam.
+category: media
+name: HolyArrs
+version: "1.3.0"
+tagline: One app for your movies, shows and music
+description: >-
+  HolyArrs finds, downloads and organises your movies, shows and music in one self-hosted app. It replaces the usual stack of Sonarr, Radarr, Lidarr, Prowlarr, Bazarr and Seerr with a single Go and Svelte application.
+
+  On first launch you create the owner account. There is no default password, so open the app and claim it right away. HolyArrs needs a downloader (Transmission, qBittorrent, SABnzbd and others), a media server (Plex, Jellyfin or Emby) and at least one indexer or source, which you connect during setup.
+
+  Downloads from the shared Umbrel Downloads folder are available at /downloads. Select a media folder in this app's settings to make it available at /media, then add /media/movies, /media/tv and /media/music as Library folders. Until you pick one, /media uses the app's own data folder. Because Umbrel mounts Downloads and media separately, imports are copies; for instant hardlinks you would need one shared parent folder instead.
+
+  HolyArrs keeps its encryption master key in /config/holyarrs.key. App backups do not include it, so download the key kit from Settings > Backups and keep it somewhere safe.
+developer: HolyArrs
+website: https://holyarrs.com
+dependencies: []
+permissions:
+  - STORAGE_DOWNLOADS
+backupIgnore:
+  - data/media
+repo: https://github.com/HolyArrs/HolyArrs
+support: https://community.holyarrs.com
+port: 6262
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: ""
+icon: https://holyarrs.com/img/icon-512.png
