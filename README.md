@@ -6,7 +6,7 @@ This repository is a community app store. It contains one app:
 
 | App | Version | Upstream |
 | --- | --- | --- |
-| HolyArrs | 1.3.0 | [HolyArrs/HolyArrs](https://github.com/HolyArrs/HolyArrs) |
+| HolyArrs | 1.3.1 | [HolyArrs/HolyArrs](https://github.com/HolyArrs/HolyArrs) |
 
 The app runs the official `holyarrs/holyarrs` image, pinned by tag and manifest-list digest. It listens on port `6262` behind umbrelOS's app proxy and keeps its state in the app's data folder.
 
@@ -61,7 +61,7 @@ The compose file also passes:
 
 1. Check the upstream release and image digest:
    ```sh
-   docker buildx imagetools inspect holyarrs/holyarrs:1.3.0
+   docker buildx imagetools inspect holyarrs/holyarrs:1.3.1
    ```
    Use the manifest-list digest shown for the release.
 2. Update `version` in `holyarrs/umbrel-app.yml` and the `image` line in `holyarrs/docker-compose.yml`.
